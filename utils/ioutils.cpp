@@ -241,7 +241,7 @@ bool SafeInputFloat(std::istream& in, float& f)
   }
   else return false;
   if(neg) f = -f;
-  return in;
+  return true;
 }
 
 bool SafeInputFloat(std::istream& in, double& f)
@@ -271,7 +271,7 @@ bool SafeInputFloat(std::istream& in, double& f)
   }
   else return false;
   if(neg) f = -f;
-  return in;
+  return true;
 }
 
 bool SafeOutputFloat(std::ostream& out, float f)

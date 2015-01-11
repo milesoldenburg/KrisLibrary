@@ -100,7 +100,7 @@ const TreeNode<T,E>& TreeNode<T,E>::operator =(const MyType& t)
 	while(tc) {
 		MyType* c=addChild(*tc);
 		*c = *tc;
-		tc = tc.nextSibling;
+		tc = tc->nextSibling;
 	}
 	return *this;
 }

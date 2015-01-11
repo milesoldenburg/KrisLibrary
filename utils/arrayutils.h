@@ -4,10 +4,7 @@
 #include <algorithm>
 #include <functional>
 #if defined (__GNUC__) && (__GNUC__ > 2)
-#include <ext/algorithm>
-namespace std {
-  using __gnu_cxx::copy_n;
-}
+#include <boost/range/algorithm_ext/copy_n.hpp>
 #endif
 #include <assert.h>
 
@@ -34,7 +31,7 @@ inline void copy(const T& a, T* out, int n)
 template <typename T>
 inline void copy(const T* a, T* out, int n)
 {
-  std::copy_n(a,n,out);
+    copy_n(a,n,out);
 }
 
 template <typename T,typename ftype>

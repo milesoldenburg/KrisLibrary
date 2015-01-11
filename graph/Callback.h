@@ -52,7 +52,7 @@ struct CountCallback : public CallbackBase<Node>
 template <class Node>
 struct FindCallback : public CallbackBase<Node>
 {
-  FindCallback(Node n) :node(n),found(false) {}
+  FindCallback() :found(false) {}
   virtual bool Stop() { return found; }
   virtual void Visit(Node n) { if(n == node) found = true; }
   Node node;

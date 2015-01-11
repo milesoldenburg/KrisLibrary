@@ -242,6 +242,10 @@ typedef BasicResource<int> IntResource;
 typedef BasicResource<double> FloatResource;
 typedef BasicResource<std::string> StringResource;
 
+template <> const char* BasicResource<int>::className = "int";
+template <> const char* BasicResource<double>::className = "double";
+template <> const char* BasicResource<std::string>::className = "string";
+
 /** @brief A resource that is composed of multiple sub-objects, which can
  * themselves be considered resources.
  *
@@ -366,6 +370,9 @@ typedef BasicArrayResource<int> IntArrayResource;
 typedef BasicArrayResource<double> FloatArrayResource;
 typedef BasicArrayResource<std::string> StringArrayResource;
 
+template <> const char* BasicArrayResource<int>::className = "vector<int>";
+template <> const char* BasicArrayResource<double>::className = "vector<double>";
+template <> const char* BasicArrayResource<std::string>::className = "vector<string>";
 
 /** @brief A resource that contains a ResourceLibrary.  Useful for
  * hierarchical resource libraries.

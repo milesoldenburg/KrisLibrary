@@ -392,7 +392,7 @@ typename ArrayND<T>::iterator& ArrayND<T>::iterator::operator -=(int skip)
     skip=0;
     while(index[i] < 0) {
       skip++;
-      index[i]+=obj.dims[i];
+      index[i]+=obj->dims[i];
     }
   }
   return *this;

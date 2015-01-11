@@ -4,7 +4,7 @@
 #include <math/vector.h>
 #include <utils/IntTuple.h>
 #include <list>
-#ifdef _MSC_VER
+#if defined(_MSC_VER) || defined(__APPLE__)
 //MSVC doesn't put TR1 files in the tr1/ folder
 #include <unordered_map>
 #else
@@ -75,7 +75,7 @@ public:
   void SegmentItems(const Vector& a,const Vector& b,ObjectSet& objs) const;
 
   Vector h;
-  typedef std::tr1::unordered_map<Index,ObjectSet,IndexHash> HashTable;
+  typedef std::unordered_map<Index,ObjectSet,IndexHash> HashTable;
   HashTable buckets;
 };
 

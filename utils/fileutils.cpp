@@ -58,7 +58,7 @@ bool Delete(const char* fn)
 #ifdef WIN32
 	return DeleteFile((LPCTSTR)fn) != FALSE;
 #else
-	return (unlink(fn)==0);
+	return (remove(fn)==0);
 #endif
 }
 

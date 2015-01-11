@@ -2,7 +2,7 @@
 #define STATISTICS_HISTOGRAMND_H
 
 #include "statistics.h"
-#ifdef _MSC_VER
+#if defined(_MSC_VER) || defined(__APPLE__)
 //MSVC doesn't put STL TR1 items in a tr1 folder
 #include <unordered_map>
 #else
@@ -53,7 +53,7 @@ class HistogramND
   Real NumObservations() const;
 
   std::vector<std::vector<Real> > divs;
-  typedef std::tr1::unordered_map<Index,Real,IndexHash> BucketHash;
+  typedef std::unordered_map<Index,Real,IndexHash> BucketHash;
   BucketHash buckets;
 };
 

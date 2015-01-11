@@ -28,40 +28,28 @@ class AnyValue
   AnyValue(const AnyValue & other)
     : content(other.content ? other.content->clone() : 0)
     {}
-  ~AnyValue() { delete content; }
+  ~AnyValue();
 
-  //operators
-   AnyValue & swap(AnyValue & rhs) {
-     std::swap(content, rhs.content);
-     return *this;
-   }
+   //operators
+   AnyValue & swap(AnyValue & rhs);
+   
    template<typename ValueType>
-   AnyValue & operator=(const ValueType & rhs) {
-     AnyValue(rhs).swap(*this);
-     return *this;
-   }
-   AnyValue & operator=(const AnyValue & rhs) {
-     AnyValue(rhs).swap(*this);
-     return *this;
-   }
-   bool empty() const { return !content; }
-   const std::type_info & type() const {
-     return content ? content->type() : typeid(void);
-   }
+   AnyValue & operator=(const ValueType & rhs);
+   
+   AnyValue & operator=(const AnyValue & rhs);
+   
+   bool empty() const;
+   
+   const std::type_info & type() const;
+   
    template <class T>
-   bool hastype() const { 
-	   return &type() == &typeid(T);
-   }
+   bool hastype() const;
+   
    template <class ValueType>
-   bool operator == (const ValueType &rhs) const {
-     if(&type() != &typeid(ValueType)) return false;
-     return *AnyCast<ValueType>(this) == rhs;
-   }
+   bool operator == (const ValueType &rhs) const;
 
    template <class ValueType>
-   bool operator != (const ValueType &rhs) const {
-     return !operator == (rhs);
-   }
+   bool operator != (const ValueType &rhs) const;
 
  private:
    struct placeholder

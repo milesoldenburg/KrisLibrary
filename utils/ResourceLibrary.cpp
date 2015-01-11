@@ -19,12 +19,6 @@ template class BasicResource<std::string>;
 template class BasicArrayResource<int>;
 template class BasicArrayResource<double>;
 template class BasicArrayResource<std::string>;
-template <> const char* BasicResource<int>::className = "int";
-template <> const char* BasicResource<double>::className = "double";
-template <> const char* BasicResource<std::string>::className = "string";
-template <> const char* BasicArrayResource<int>::className = "vector<int>";
-template <> const char* BasicArrayResource<double>::className = "vector<double>";
-template <> const char* BasicArrayResource<std::string>::className = "vector<string>";
 
 vector<ResourcePtr> ResourcesByType(std::vector<ResourcePtr>& resources,const std::string& type)
 {
