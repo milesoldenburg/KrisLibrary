@@ -4,18 +4,18 @@ AnyValue::~AnyValue() {
     delete content;
 }
 
-AnyValue AnyValue::&swap(AnyValue & rhs) {
+AnyValue &AnyValue::swap(AnyValue & rhs) {
   std::swap(content, rhs.content);
   return *this;
 }
 
 template<typename ValueType>
-AnyValue AnyValue::&operator = (const ValueType & rhs) {
+AnyValue &AnyValue::operator = (const ValueType & rhs) {
   AnyValue(rhs).swap(*this);
   return *this;
 }
 
-AnyValue AnyValue::&operator = (const AnyValue & rhs) {
+AnyValue &AnyValue::operator = (const AnyValue & rhs) {
   AnyValue(rhs).swap(*this);
   return *this;
 }
@@ -24,7 +24,7 @@ bool AnyValue::empty() const {
     return !content;
 }
 
-const std::type_info AnyValue::&type() const {
+const std::type_info &AnyValue::type() const {
   return content ? content->type() : typeid(void);
 }
 
